@@ -212,3 +212,420 @@ Source-Age: 1
 
 ]
 [2024-12-09 01:59:19,442: INFO: 2873370200: Extracted zip file to artifacts/data_ingestion]
+[2024-12-09 02:03:04,318: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 02:03:04,321: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 02:03:04,322: INFO: common: created directory at: artifacts]
+[2024-12-09 02:03:04,323: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-12-09 02:03:06,339: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-12-09 02:03:06,418: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-12-09 02:13:28,105: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-12-09 02:13:28,107: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 02:13:28,107: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 02:13:28,108: INFO: common: created directory at: artifacts]
+[2024-12-09 02:13:28,108: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-12-09 02:13:28,398: ERROR: main: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 975, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1454, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 512, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1070, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1341, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdulrasheed/Desktop/ImageClassification/main.py", line 9, in <module>
+    data_ingestion.main()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/components/data_ingestion.py", line 16, in download_file
+    filename, headers = request.urlretrieve(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 241, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+[2024-12-09 02:14:23,634: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-12-09 02:14:23,635: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 02:14:23,636: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 02:14:23,636: INFO: common: created directory at: artifacts]
+[2024-12-09 02:14:23,636: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-12-09 02:14:23,669: ERROR: main: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 975, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1454, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 512, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1070, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1341, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdulrasheed/Desktop/ImageClassification/main.py", line 9, in <module>
+    data_ingestion.main()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/components/data_ingestion.py", line 16, in download_file
+    filename, headers = request.urlretrieve(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 241, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+[2024-12-09 02:30:00,211: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-12-09 02:30:00,212: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 02:30:00,212: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 02:30:00,213: INFO: common: created directory at: artifacts]
+[2024-12-09 02:30:00,213: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-12-09 02:30:00,242: ERROR: main: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 975, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1454, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 512, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1070, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1341, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdulrasheed/Desktop/ImageClassification/main.py", line 9, in <module>
+    data_ingestion.main()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/components/data_ingestion.py", line 16, in download_file
+    filename, headers = request.urlretrieve(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 241, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+[2024-12-09 02:35:48,898: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-12-09 02:35:48,899: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 02:35:48,900: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 02:35:48,900: INFO: common: created directory at: artifacts]
+[2024-12-09 02:35:48,900: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-12-09 02:35:48,987: ERROR: main: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 975, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1454, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 512, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1070, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1341, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdulrasheed/Desktop/ImageClassification/main.py", line 9, in <module>
+    data_ingestion.main()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/components/data_ingestion.py", line 16, in download_file
+    filename, headers = request.urlretrieve(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 241, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+[2024-12-09 02:37:14,768: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-12-09 02:37:14,769: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 02:37:14,770: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 02:37:14,770: INFO: common: created directory at: artifacts]
+[2024-12-09 02:37:14,770: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-12-09 02:37:14,804: ERROR: main: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 975, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1454, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 512, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1070, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1341, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdulrasheed/Desktop/ImageClassification/main.py", line 9, in <module>
+    data_ingestion.main()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/components/data_ingestion.py", line 16, in download_file
+    filename, headers = request.urlretrieve(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 241, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+[2024-12-09 02:39:41,521: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-12-09 02:39:41,522: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 02:39:41,523: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 02:39:41,523: INFO: common: created directory at: artifacts]
+[2024-12-09 02:39:41,523: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-12-09 02:39:41,566: ERROR: main: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 975, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1454, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 512, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1070, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1341, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdulrasheed/Desktop/ImageClassification/main.py", line 9, in <module>
+    data_ingestion.main()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/pipeline/stage_01_data_ingestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "/Users/abdulrasheed/Desktop/ImageClassification/source/CNNClassifier/components/data_ingestion.py", line 16, in download_file
+    filename, headers = request.urlretrieve(
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 241, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:997)>
+[2024-12-09 02:44:16,509: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-12-09 02:44:16,510: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 02:44:16,511: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 02:44:16,511: INFO: common: created directory at: artifacts]
+[2024-12-09 02:44:16,511: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-12-09 02:44:18,513: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 67446398
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "d5f5b4e21b3db22d19965753fd565933be473e744a85accaed9a02fc0a4925d4"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: A3CE:2A1985:13AC2B:1687D6:6756A351
+Accept-Ranges: bytes
+Date: Mon, 09 Dec 2024 08:44:17 GMT
+Via: 1.1 varnish
+X-Served-By: cache-dfw-ktki8620072-DFW
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1733733857.714858,VS0,VE532
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 1347f2714da3b0dca537dd10ce17d3fc1f47a625
+Expires: Mon, 09 Dec 2024 08:49:17 GMT
+Source-Age: 0
+
+]
+[2024-12-09 02:44:21,235: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-12-09 15:33:46,661: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 15:33:46,666: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 15:33:46,668: INFO: common: created directory at: artifacts]
+[2024-12-09 15:33:46,669: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-12-09 15:33:46,974: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-12-09 15:33:47,055: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-12-09 15:35:47,006: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 15:35:47,009: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 15:35:47,010: INFO: common: created directory at: artifacts]
+[2024-12-09 15:35:47,011: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-12-09 15:35:47,229: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-12-09 15:35:47,286: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-12-09 16:12:25,852: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-12-09 16:12:25,853: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 16:12:25,854: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 16:12:25,854: INFO: common: created directory at: artifacts]
+[2024-12-09 16:12:25,854: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-12-09 16:12:28,855: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 67446398
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "d5f5b4e21b3db22d19965753fd565933be473e744a85accaed9a02fc0a4925d4"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 0A46:C470B:10DF8:129A4:67576B48
+Accept-Ranges: bytes
+Date: Mon, 09 Dec 2024 22:12:27 GMT
+Via: 1.1 varnish
+X-Served-By: cache-dfw-ktki8620090-DFW
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1733782346.186527,VS0,VE1325
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 17f53c42bec714efd14744e9aabc7eece7bfeb54
+Expires: Mon, 09 Dec 2024 22:17:27 GMT
+Source-Age: 0
+
+]
+[2024-12-09 16:12:31,910: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-12-09 16:12:31,910: INFO: main: *******************]
+[2024-12-09 16:12:31,910: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-12-09 16:12:31,911: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-09 16:12:31,912: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-09 16:12:31,912: INFO: common: created directory at: artifacts]
+[2024-12-09 16:12:31,912: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-12-09 16:12:32,189: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-12-09 16:12:32,257: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2024-12-09 16:12:32,306: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
