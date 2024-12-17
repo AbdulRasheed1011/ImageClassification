@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from source.CNNClassifier.constant.__init_ import CONFIG_FILE_PATH, PARAMS_FILE_PATH
 from source.CNNClassifier.utils.common import read_yaml, create_directories
-from source.CNNClassifier.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig, PrepareCallbacksConfig, TrainingConfig
+from source.CNNClassifier.entity.config_entity import DataIngestionConfig, PrepareBaseModelConfig, PrepareCallbacksConfig, TrainingConfig, EvaluationConfig
 
 
 class ConfigurationManager:
@@ -89,3 +89,13 @@ class ConfigurationManager:
         )
 
         return training_config
+    
+    def get_validation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model=Path("artifacts/training/model.keras"),
+            training_data= Path("artifacts/data_ingestion/Images"),
+            all_params=self.params,
+            params_image_size=self.params.IMAGE_SIZE,
+            params_batch_size=self.params.BATCH_SIZE
+        )
+        return eval_config 
