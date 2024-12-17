@@ -1,6 +1,9 @@
 from pathlib import Path
 from source.CNNClassifier.entity.config_entity import TrainingConfig
 import tensorflow as tf
+import os
+from PIL import Image
+
 
 class Training:
     def __init__(self, config: TrainingConfig):
@@ -10,35 +13,63 @@ class Training:
         self.model = tf.keras.models.load_model(
             self.config.updated_base_model_path
         )
-    
+
+    def remove_ds_store_files(self, directory):
+        """
+        Remove all .DS_Store files from the specified directory and its subdirectories.
+        """
+        for root, _, files in os.walk(directory):
+            if '.DS_Store' in files:
+                os.remove(os.path.join(root, '.DS_Store'))
+                print(f".DS_Store has been removed from: {root}")
+
+    def remove_invalid_images(self, directory):
+        """
+        Validate and remove corrupted image files from the specified directory and its subdirectories.
+        """
+        for root, _, files in os.walk(directory):
+            for file in files:
+                file_path = os.path.join(root, file)
+                try:
+                    with Image.open(file_path) as img:
+                        img.verify()  # Verify that it's a valid image
+                except (IOError, SyntaxError, Image.UnidentifiedImageError):
+                    print(f"Removing corrupted file: {file_path}")
+                    os.remove(file_path)
+
     def train_valid_generator(self):
+        # Clean the training data directory
+        training_data_dir = self.config.training_data
+        print("Cleaning the training data directory...")
+        self.remove_ds_store_files(training_data_dir)
+        self.remove_invalid_images(training_data_dir)
+
         # Common data generator arguments
         datagenerator_kwargs = dict(
-            rescale=1. / 255,  # Normalize pixel values to [0, 1]
-            validation_split=0.20  # 20% of data for validation
+            rescale=1. / 255,
+            validation_split=0.20
         )
 
-        # Arguments for data flow (resize and batching)
         dataflow_kwargs = dict(
-            target_size=self.config.params_image_size[:-1],  # Resize images to model's input size
-            batch_size=self.config.params_batch_size,       # Batch size for training and validation
-            class_mode="categorical",                      # Multi-class classification
-            interpolation="bilinear"                       # Resize method
+            target_size=self.config.params_image_size[:-1],
+            batch_size=self.config.params_batch_size,
+            class_mode="categorical",
+            interpolation="bilinear"
         )
 
-        # Create validation generator
+        # Validation data generator
         valid_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
             **datagenerator_kwargs
         )
 
         self.valid_generator = valid_datagenerator.flow_from_directory(
-            directory=self.config.training_data,  # Root folder containing category subfolders
-            subset="validation",                 # Use validation subset
-            shuffle=False,                       # Do not shuffle for validation
+            directory=training_data_dir,
+            subset="validation",
+            shuffle=False,
             **dataflow_kwargs
         )
 
-        # Create training generator with augmentation if specified
+        # Training data generator
         if self.config.params_is_augmentation:
             train_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
                 rotation_range=40,
@@ -50,28 +81,23 @@ class Training:
                 **datagenerator_kwargs
             )
         else:
-            train_datagenerator = valid_datagenerator  # No augmentation
+            train_datagenerator = valid_datagenerator
 
         self.train_generator = train_datagenerator.flow_from_directory(
-            directory=self.config.training_data,  # Root folder containing category subfolders
-            subset="training",                   # Use training subset
-            shuffle=True,                        # Shuffle for training
+            directory=training_data_dir,
+            subset="training",
+            shuffle=True,
             **dataflow_kwargs
         )
-
-        # Print the class indices for reference
-        print("Class Indices:", self.train_generator.class_indices)
 
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
         model.save(path)
 
     def train(self, callback_list: list):
-        # Calculate steps per epoch and validation steps
         self.steps_per_epoch = self.train_generator.samples // self.train_generator.batch_size
         self.validation_steps = self.valid_generator.samples // self.valid_generator.batch_size
 
-        # Train the model
         self.model.fit(
             self.train_generator,
             epochs=self.config.params_epochs,
@@ -81,7 +107,6 @@ class Training:
             callbacks=callback_list
         )
 
-        # Save the trained model
         self.save_model(
             path=self.config.trained_model_path,
             model=self.model
