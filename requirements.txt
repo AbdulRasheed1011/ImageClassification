@@ -14,5 +14,5 @@ joblib
 scipy
 Flask
 Flask-Cors
-
+keras
 -e .

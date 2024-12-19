@@ -1,10 +1,13 @@
 Metadata-Version: 2.1
-Name: Image_Classification
+Name: Image-Classification
 Version: 0.0.1
 Summary: A small python package for CNN app
 Home-page: https://github.com/Abdul Rasheed/ImageClassification
 Author: Abdul Rasheed
 Author-email: rasheedsharjeel10@gmail.com
+License: UNKNOWN
 Project-URL: Bug Tracker, https://github.com/Abdul Rasheed/ImageClassification/issues
+Platform: UNKNOWN
 
 # End-to-End Image Classification
+
