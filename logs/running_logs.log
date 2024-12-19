@@ -1313,3 +1313,4 @@ PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x
 [2024-12-19 02:30:49,789: INFO: _internal: 127.0.0.1 - - [19/Dec/2024 02:30:49] "POST /predict HTTP/1.1" 200 -]
 [2024-12-19 02:31:41,375: INFO: _internal: 127.0.0.1 - - [19/Dec/2024 02:31:41] "POST /predict HTTP/1.1" 200 -]
 [2024-12-19 02:32:15,031: INFO: _internal: 127.0.0.1 - - [19/Dec/2024 02:32:15] "POST /predict HTTP/1.1" 200 -]
+[2024-12-19 02:39:18,045: INFO: _internal: 127.0.0.1 - - [19/Dec/2024 02:39:18] "GET / HTTP/1.1" 200 -]
