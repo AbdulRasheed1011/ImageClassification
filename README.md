@@ -22,7 +22,7 @@ Find the complete source code and resources for this project at the following li
     - **Learning Rate**: 0.001
 - **Data Augmentation**: Used rotation, flipping, shifting, and zooming techniques to enhance training generalization.
 - **Cloud Deployment**: Deployed on **AWS EC2** using a **CI/CD pipeline** with **GitHub Actions**, serving the model as a **Flask API** for real-time inference.
-- **Model Classes**: Classifies images into four categories: **dog, cat, man, and woman**.
+- **Model Classes**: Classifies images into four categories: **cat, dog, man, and woman**.
 
 ---
 
@@ -53,7 +53,7 @@ Find the complete source code and resources for this project at the following li
 ## **Setup Instructions**
 
 ### Prerequisites
-- Python 3.8+
+- Python 3.11
 - AWS account with EC2 instance setup
 - GitHub repository with access to CI/CD pipeline
 
@@ -69,19 +69,15 @@ Find the complete source code and resources for this project at the following li
    pip install -r requirements.txt
    ```
 
-3. **Run the Training Pipeline**:
+3. **For Training and Evaluate Model**:
    - Ensure data is placed in the appropriate directory.
    - Update the `params.yaml` with your configuration.
    ```bash
-   python train.py
+   python main.py
    ```
 
-4. **Evaluate the Model**:
-   ```bash
-   python evaluate.py
-   ```
 
-5. **Deploy the Model on AWS**:
+4. **Deploy the Model on AWS**:
    - Configure GitHub Actions for CI/CD.
    - Push code to the `main` branch to trigger the pipeline.
    - Access the deployed Flask API via the EC2 instance's public IP.
